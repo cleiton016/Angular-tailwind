@@ -12,20 +12,21 @@
             <div class="flex items-center justify-center border-spacing-0.5 p-5 shadow-sm">
               <h2 class=" text-slate-500 text-2xl">Novo Baralho</h2>
             </div>
-            <div class="block m-3">
-              <label for="deckName">Nome do Baralho</label>
-              <input type="text" name="deckName" id="deckName" placeholder="Nome do Baralho" class="w-full py-3">
-            </div>
-            <div class="block m-3">
-              <p class="text-sm text-slate-800 my-3">Adicione cartas ao seu baralho</p>
-              <input type="text" name="deckName" id="deckName" placeholder="Nome do Baralho" class="w-full py-3" (onchange)="search($event)">
-            </div>
+            <form action="" onsubmit="return false">
+              <div class="block m-3">
+                <label for="deckName">Nome do Baralho</label>
+                <input type="text" name="deckName" id="deckName" placeholder="Nome do Baralho" class="w-full py-3">
+              </div>
+              <div class="block m-3">
+                <p class="text-sm text-slate-800 my-3">Adicione cartas ao seu baralho</p>
+                <input type="text" name="deckName" id="deckName" placeholder="Nome do Baralho" class="w-full py-3" #deck>
+                <button (click)="search(deck)">Buscar</button>
+              </div>
+            </form>
 
             <div class="flex">
               <div class="group relative shadow-2xl p-3 border-solid rounded-md bg-slate-100" *ngFor="let item of resultSearch">
-                <div class="aspect-h-1 aspect-w-1 w-full overflow-hidden rounded-md  lg:aspect-none group-hover:opacity-75 lg:h-80">
-                  <img [src]="item.cover" alt="Front of men&#039;s Basic Tee in black." class="h-full w-full object-cover object-center lg:h-full lg:w-full">
-                </div>
+
                 <div class="mt-4 flex justify-between">
                   <div>
                     <h3 class="text-sm font-medium text-gray-900">

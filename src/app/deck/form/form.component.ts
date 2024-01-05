@@ -1,6 +1,7 @@
 import { PokemonService } from './../../services/pokemon.service';
 import { CommonModule } from '@angular/common';
 import { ChangeDetectionStrategy, Component, ViewChild, type OnInit } from '@angular/core';
+import { FormControl } from '@angular/forms';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
@@ -41,8 +42,8 @@ export class FormComponent implements OnInit {
   }
 
   search(event: any){
-    console.log(event)
-    this.pokemon.getCards(event.value).subscribe({
+    console.log(event.value)
+    this.pokemon.getCards('').subscribe({
       next: res => {
         this.resultSearch = res.data
       }
