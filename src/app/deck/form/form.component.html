@@ -13,20 +13,22 @@
               <h2 class=" text-slate-500 text-2xl">Novo Baralho</h2>
             </div>
             <form action="" onsubmit="return false">
-              <div class="block m-3">
-                <label for="deckName">Nome do Baralho</label>
+              <div class="block mx-3 my-5">
+                <label for="deckName" class="text-sm text-slate-800">Nome do Baralho</label>
                 <input type="text" name="deckName" id="deckName" placeholder="Nome do Baralho" class="w-full py-3">
               </div>
-              <div class="block m-3">
-                <p class="text-sm text-slate-800 my-3">Adicione cartas ao seu baralho</p>
+              <label class="text-sm text-slate-800 mx-3 mt-3">Adicione cartas ao seu baralho</label>
+              <div class="flex mx-3">
                 <input type="text" name="deckName" id="deckName" placeholder="Nome do Baralho" class="w-full py-3" #deck>
-                <button (click)="search(deck)">Buscar</button>
+                <button (click)="search(deck)" class="bg-blue-600 rounded-lg w-32 mx-5">Buscar</button>
               </div>
             </form>
 
-            <div class="flex">
-              <div class="group relative shadow-2xl p-3 border-solid rounded-md bg-slate-100" *ngFor="let item of resultSearch">
-
+            <div class=" grid grid-cols-2 gap-4 overflow-y-scroll h-full max-h-80 p-5">
+              <div class="group relative shadow-md p-3 border-solid rounded-md bg-white h-auto" *ngFor="let item of resultSearch">
+                <div class="aspect-h-1 aspect-w-1 w-full overflow-hidden rounded-md  lg:aspect-none group-hover:opacity-75 lg:h-80">
+                  <img [src]="item.images.small" alt="Front of men&#039;s Basic Tee in black." class="h-full w-full object-cover object-center lg:h-full lg:w-full">
+                </div>
                 <div class="mt-4 flex justify-between">
                   <div>
                     <h3 class="text-sm font-medium text-gray-900">
@@ -34,8 +36,7 @@
                     </h3>
                     
                   </div>
-                  <p class="text-sm font-normal text-gray-700">Cards: {{item.listCards.length
-                  }}/60</p>
+                  <p class="text-sm font-normal text-gray-700">Cards: /60</p>
                 </div>
               </div>
             </div>

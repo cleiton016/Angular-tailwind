@@ -18,7 +18,7 @@ export class FormComponent implements OnInit {
 
   @ViewChild('modal') modal: any
   isOpened: boolean = false
-  resultSearch: any
+  resultSearch: any[] = []
   constructor(
     private modalService: NgbModal,
     private pokemon: PokemonService
@@ -43,9 +43,15 @@ export class FormComponent implements OnInit {
 
   search(event: any){
     console.log(event.value)
-    this.pokemon.getCards('').subscribe({
+    let sch = ''
+    if(event.value != '' && event.value.length >= 3){
+      sch = 'name:'+event.value
+    }
+    this.pokemon.getCards(sch).subscribe({
       next: res => {
         this.resultSearch = res.data
+        console.log(this.resultSearch);
+        
       }
     })
   }
