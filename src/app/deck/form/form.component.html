@@ -1,0 +1,45 @@
+
+    
+  
+    
+
+    <ng-template #modal let-modal>
+      <div class="fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity"></div>
+
+      <div class="fixed inset-0 z-10 w-auto overflow-y-auto">
+        <div class="flex min-h-full items-end justify-center text-center lg:items-center lg:p-0">
+          <div class="relative transform overflow-hidden rounded-lg bg-white text-left shadow-xl transition-all lg:my-8 lg:w-full lg:max-w-lg">
+            <div class="flex items-center justify-center border-spacing-0.5 p-5 shadow-sm">
+              <h2 class=" text-slate-500 text-2xl">Novo Baralho</h2>
+            </div>
+            <div class="block m-3">
+              <label for="deckName">Nome do Baralho</label>
+              <input type="text" name="deckName" id="deckName" placeholder="Nome do Baralho" class="w-full py-3">
+            </div>
+            <div class="block m-3">
+              <p class="text-sm text-slate-800 my-3">Adicione cartas ao seu baralho</p>
+              <input type="text" name="deckName" id="deckName" placeholder="Nome do Baralho" class="w-full py-3" (onchange)="search($event)">
+            </div>
+
+            <div class="flex">
+              <div class="group relative shadow-2xl p-3 border-solid rounded-md bg-slate-100" *ngFor="let item of resultSearch">
+                <div class="aspect-h-1 aspect-w-1 w-full overflow-hidden rounded-md  lg:aspect-none group-hover:opacity-75 lg:h-80">
+                  <img [src]="item.cover" alt="Front of men&#039;s Basic Tee in black." class="h-full w-full object-cover object-center lg:h-full lg:w-full">
+                </div>
+                <div class="mt-4 flex justify-between">
+                  <div>
+                    <h3 class="text-sm font-medium text-gray-900">
+                      {{item.name}}
+                    </h3>
+                    
+                  </div>
+                  <p class="text-sm font-normal text-gray-700">Cards: {{item.listCards.length
+                  }}/60</p>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </ng-template>
