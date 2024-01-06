@@ -22,7 +22,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 })
 export class FormComponent implements OnInit {
   @ViewChild('modal') modal: any
-  
+
   isOpened: boolean = false
   resultSearch?: APIData
   cardsSelected?: PokemonCard[] = []
@@ -39,7 +39,7 @@ export class FormComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    
+
    }
 
   async open(data: string): Promise<void> {
@@ -66,14 +66,14 @@ export class FormComponent implements OnInit {
       next: res => {
         this.resultSearch = res
         console.log(this.resultSearch);
-        
+
       }
     })
   }
 
   select(card: PokemonCard){
     console.log(card);
-    
+
     const qtName = this.cardsSelected?.filter(el => el.name == card.name).length
     const qtId = this.cardsSelected?.filter(el => el.id == card.id).length
     if( qtName! < 4 && qtId! < 1){
@@ -89,6 +89,7 @@ export class FormComponent implements OnInit {
   save(modal: any){
     if (this.form.valid && this.cardsSelected!.length >= 24){
       const deck: Deck = {
+        id: Math.random(),
         name: this.form.controls.name.value!,
         listCards: this.cardsSelected!,
         cover: this.form.controls.cover.value!
@@ -109,12 +110,12 @@ export class FormComponent implements OnInit {
     }
   }
 
-  
+
 
   toggleValidation(index: number, id: string) {
     const elementoDesejado = document.getElementById('val'+index+id)
-    
-    
+
+
     if (elementoDesejado?.classList.contains('hidden')) {
       elementoDesejado.classList.remove('hidden')
     } else {

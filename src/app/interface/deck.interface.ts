@@ -1,7 +1,8 @@
 import { PokemonCard } from "./pokemon.interface"
 
 export interface Deck {
-    name: string
-    listCards: PokemonCard[] 
-    cover: string
+  id: number
+  name: string
+  listCards: PokemonCard[]
+  cover: string
 }

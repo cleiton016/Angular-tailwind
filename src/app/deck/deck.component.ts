@@ -18,26 +18,37 @@ import { DeckShowComponent } from './deck-show/deck-show.component';
   ]
 })
 export class DeckComponent implements OnInit {
-    @ViewChild('modal') modal: any
-    @ViewChild('deckView') deckView: any
-    decks: Deck[] = []
+  @ViewChild('modal') modal: any
+  @ViewChild('deckView') deckView: any
+  decks: Deck[] = []
 
-    constructor (private modalService: NgbModal){}
-    ngOnInit(): void {   
-        this.setup()
-     }
+  constructor(private modalService: NgbModal) { }
+  ngOnInit(): void {
+    this.setup()
+  }
 
-     setup(){
-        this.decks = JSON.parse(localStorage.getItem('deckOfCards')!)   
-     }
+  setup() {
+    this.decks = JSON.parse(localStorage.getItem('deckOfCards')!)
+  }
 
-  
-    openModal(modal: any) {
-        modal.open()
+
+  openModal(modal: any) {
+    modal.open()
+  }
+
+  openViewDeck(deckView: any) {
+    deckView.open()
+  }
+
+  toggleValidation(index: number, id: number) {
+    const element = document.getElementById('val' + index + id)
+
+    if (element?.classList.contains('hidden')) {
+      element.classList.remove('hidden')
+    } else {
+      element?.classList.add('hidden')
     }
 
-    openViewDeck(deckView: any) {
-        deckView.open()
-    }
+  }
 
 }
