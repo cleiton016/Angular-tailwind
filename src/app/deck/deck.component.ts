@@ -17,17 +17,15 @@ import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 })
 export class DeckComponent implements OnInit {
     @ViewChild('modal') modal: any
-    decks: Deck[] = [
-        {
-            name: 'Teste 1',
-            listCards: [],
-            cover: 'https://p2.trrsf.com/image/fget/cf/774/0/images.terra.com/2023/03/25/1772225721-pokemon-horizons.jpg'
-        },
-    ]
+    decks: Deck[] = []
 
     constructor (private modalService: NgbModal){}
-    ngOnInit(): void {
-        //this.decks = JSON.parse(localStorage.getItem('decksOfCards')!)
+    ngOnInit(): void {   
+        this.setup()
+     }
+
+     setup(){
+        this.decks = JSON.parse(localStorage.getItem('deckOfCards')!)   
      }
 
     newDeck(data: Deck){

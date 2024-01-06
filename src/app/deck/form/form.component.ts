@@ -62,7 +62,7 @@ export class FormComponent implements OnInit {
     if(event.value != '' && event.value?.length >= 3){
       sch = 'name:'+event.value
     }
-    this.pokemon.getCards(sch, 1, 20).subscribe({
+    this.pokemon.getCards(sch, 1, 200).subscribe({
       next: res => {
         this.resultSearch = res
         console.log(this.resultSearch);
@@ -93,9 +93,13 @@ export class FormComponent implements OnInit {
         listCards: this.cardsSelected!,
         cover: this.form.controls.cover.value!
       }
-      localStorage.setItem('deckOfCards', JSON.stringify(deck))
+      let listDecks = JSON.parse(localStorage.getItem('deckOfCards')!)
+      localStorage.setItem('deckOfCards', JSON.stringify([...listDecks , deck]))
 
       this.close(modal)// deve redirencionar para list de cards atualizada
+      location.reload()
+    }else{
+      //apresentar o toast de alerta
     }
   }
 

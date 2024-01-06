@@ -24,10 +24,11 @@
               </div>
               <label class="text-sm text-slate-800 mx-3 mt-3">Adicione cartas ao seu baralho</label>
               <div class="flex mx-3">
-                <input type="text" name="deckName" id="deckName" placeholder="Nome do Baralho" class="form-input rounded-md w-full py-3" #deck>
+                <input type="text" name="deckName" id="deckName" placeholder="Pesquisar..." class="form-input rounded-md w-full py-3" #deck>
                 <button (click)="search(deck)" class="bg-blue-600 rounded-lg w-32 mx-5">Buscar</button>
               </div>
             </form>
+            <p class="ps-2">Total selecionados: {{this.cardsSelected?.length }}</p>
             <div class="grid grid-cols-2 mt-5 bg-slate-200 mx-3 rounded-t-md">
               <h1 class="text-center font-semibold text-xl py-5 shadow-md border-r-2 border-slate-400">Cards Disponiveis </h1>
               <h1 class="text-center font-semibold text-xl py-5 shadow-md">Cards Selecionados</h1>
@@ -80,7 +81,7 @@
                       </h3>
                       
                     </div>
-                    <p class="text-sm font-normal text-gray-700">Cards: /60</p>
+                    <!-- <p class="text-sm font-normal text-gray-700">Cards: /60</p> -->
                   </div>
                 </div>
               </div>
