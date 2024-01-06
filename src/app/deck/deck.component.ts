@@ -35,7 +35,6 @@ export class DeckComponent implements OnInit {
   openModal(data: any, params: string) {
     if (params == 'edit') {
       this.modal.open(data)
-
     } else {
       this.modal.open()
     }
@@ -54,6 +53,14 @@ export class DeckComponent implements OnInit {
       element?.classList.add('hidden')
     }
 
+  }
+  removeDeck(item: Deck) {
+    var index = this.decks.indexOf(item);
+    if (index > -1) {
+      this.decks.splice(index, 1);
+      localStorage.removeItem('deckOfCards')
+      localStorage.setItem('deckOfCards', JSON.stringify(this.decks))
+    }
   }
 
 }

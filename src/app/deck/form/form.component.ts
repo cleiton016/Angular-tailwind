@@ -48,7 +48,6 @@ export class FormComponent implements OnInit {
   async open(data: any): Promise<void> {
     if (data) {
       this.edit = true
-      console.log(data)
       this.form = this.fb.group({
         id: data?.id,
         name: data?.name,
@@ -75,9 +74,6 @@ export class FormComponent implements OnInit {
 
       this.pokemon.getCards(sch, 1, 200).subscribe({
         next: res => {
-          // this.resultSearch = res
-          console.log('dsafasdfasdf', this.cardsSelected);
-          console.log('res', res);
           this.resultSearch = res?.data.filter((item1: any) => !this.cardsSelected?.some(item2 => item1.id === item2.id));
         }
       })
@@ -89,16 +85,12 @@ export class FormComponent implements OnInit {
       this.pokemon.getCards(sch, 1, 200).subscribe({
         next: res => {
           this.resultSearch = res
-          console.log(this.resultSearch);
-
         }
       })
     }
   }
 
   select(card: PokemonCard, id: any) {
-    console.log(card);
-
     const qtName = this.cardsSelected?.filter(el => el.name == card.name).length
     const qtId = this.cardsSelected?.filter(el => el.id == card.id).length
     if (qtName! < 4 && qtId! < 1) {
@@ -117,7 +109,7 @@ export class FormComponent implements OnInit {
 
   save(modal: any) {
     if (this.form.valid && (this.cardsSelected!.length >= 24 && this.cardsSelected!.length <= 60)) {
-      this.showToast('toast-success', this.edit? 'As modificações foram salvas' : 'Criado com Sucesso!')
+      this.showToast('toast-success', this.edit ? 'As modificações foram salvas' : 'Criado com Sucesso!')
       let id = 1
       if (this.form.value.id) {
         id = this.form.value.id
