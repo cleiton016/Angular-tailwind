@@ -1,3 +1,7 @@
 :host {
   display: block;
 }
+#toast-danger,#toast-success {
+  top: 20px; 
+  right: 20px; 
+}
