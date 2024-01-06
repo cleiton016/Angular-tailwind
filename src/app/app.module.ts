@@ -11,14 +11,12 @@ import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
-
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
     HeaderComponent,
     FooterComponent,
-
   ],
   providers: [
     provideHttpClient()
@@ -30,7 +28,7 @@ import { CommonModule } from '@angular/common';
     AppRoutingModule,
     DeckComponent,
     NgbModule,
-    FormsModule, 
+    FormsModule,
     ReactiveFormsModule
   ]
 })

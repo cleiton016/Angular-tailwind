@@ -3,20 +3,23 @@ import { ChangeDetectionStrategy, Component, ViewChild, type OnInit } from '@ang
 import { Deck } from '../interface/deck.interface';
 import { FormComponent } from "./form/form.component";
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { DeckShowComponent } from './deck-show/deck-show.component';
 
 @Component({
-    selector: 'app-deck',
-    standalone: true,
-    templateUrl: './deck.component.html',
-    styleUrls: ['./deck.component.css'],
-    changeDetection: ChangeDetectionStrategy.OnPush,
-    imports: [
-        CommonModule,
-        FormComponent
-    ]
+  selector: 'app-deck',
+  standalone: true,
+  templateUrl: './deck.component.html',
+  styleUrls: ['./deck.component.css'],
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  imports: [
+    CommonModule,
+    FormComponent,
+    DeckShowComponent
+  ]
 })
 export class DeckComponent implements OnInit {
     @ViewChild('modal') modal: any
+    @ViewChild('deckView') deckView: any
     decks: Deck[] = []
 
     constructor (private modalService: NgbModal){}
@@ -28,13 +31,13 @@ export class DeckComponent implements OnInit {
         this.decks = JSON.parse(localStorage.getItem('deckOfCards')!)   
      }
 
-    newDeck(data: Deck){
-        this.decks.push(data)
-        localStorage.setItem('decksOfCards', JSON.stringify(this.decks))
-    }
+  
     openModal(modal: any) {
         modal.open()
-      }
+    }
 
+    openViewDeck(deckView: any) {
+        deckView.open()
+    }
 
 }
