@@ -9,6 +9,7 @@ import { DeckComponent } from "./deck/deck.component";
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
+import { DeckShowComponent } from './deck/deck-show/deck-show.component';
 
 @NgModule({
   declarations: [
