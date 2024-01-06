@@ -22,11 +22,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 })
 export class FormComponent implements OnInit {
   @ViewChild('modal') modal: any
-<<<<<<< HEAD
   mensagem : any;
-=======
-
->>>>>>> 78a70e3915512d1d86e03b55273144c22399b0ee
   isOpened: boolean = false
   resultSearch?: APIData
   cardsSelected?: PokemonCard[] = []
