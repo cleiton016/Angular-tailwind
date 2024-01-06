@@ -94,7 +94,13 @@ export class FormComponent implements OnInit {
         cover: this.form.controls.cover.value!
       }
       let listDecks = JSON.parse(localStorage.getItem('deckOfCards')!)
-      localStorage.setItem('deckOfCards', JSON.stringify([...listDecks , deck]))
+      if(listDecks){
+
+        localStorage.setItem('deckOfCards', JSON.stringify([...listDecks , deck]))
+      }else{
+        localStorage.setItem('deckOfCards', JSON.stringify([ deck]))
+
+      }
 
       this.close(modal)// deve redirencionar para list de cards atualizada
       location.reload()
