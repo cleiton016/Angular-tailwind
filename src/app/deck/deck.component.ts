@@ -21,7 +21,7 @@ export class DeckComponent implements OnInit {
   @ViewChild('modal') modal: any
   @ViewChild('deckView') deckView: any
   decks: Deck[] = []
-
+  deckSelected: any
   constructor(private modalService: NgbModal) { }
   ngOnInit(): void {
     this.setup()
@@ -36,13 +36,13 @@ export class DeckComponent implements OnInit {
     modal.open()
   }
 
-  openViewDeck(deckView: any) {
-    deckView.open()
+  openViewDeck(item: any) {
+    this.deckSelected = item
+    this.deckView.open(item)
   }
 
-  toggleValidation(index: number, id: number) {
-    const element = document.getElementById('val' + index + id)
-
+  toggleValidation(index: number, object: any) {
+    const element = document.getElementById('val' + index + object.id)
     if (element?.classList.contains('hidden')) {
       element.classList.remove('hidden')
     } else {
