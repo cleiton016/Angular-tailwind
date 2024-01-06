@@ -130,7 +130,7 @@ export class FormComponent implements OnInit {
       }
       let listDecks = JSON.parse(localStorage.getItem('deckOfCards')!)
       if (listDecks) {
-        console.log(JSON.stringify([...listDecks, deck]))
+        listDecks = listDecks.filter((item: any) => item.id !== this.form.value.id)
         localStorage.setItem('deckOfCards', JSON.stringify([...listDecks, deck]))
       } else {
         localStorage.setItem('deckOfCards', JSON.stringify([deck]))
