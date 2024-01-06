@@ -32,8 +32,13 @@ export class DeckComponent implements OnInit {
   }
 
 
-  openModal(modal: any) {
-    modal.open()
+  openModal(data: any, params: string) {
+    if (params == 'edit') {
+      this.modal.open(data)
+
+    } else {
+      this.modal.open()
+    }
   }
 
   openViewDeck(item: any) {
