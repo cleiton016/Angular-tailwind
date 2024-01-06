@@ -13,7 +13,7 @@ import { PokemonService } from 'src/app/services/pokemon.service';
   standalone: true,
   changeDetection: ChangeDetectionStrategy.OnPush,
   templateUrl: './deck-show.component.html',
-  styleUrls: ['./deck-show.component.css']
+  styleUrls: ['./deck-show.component.scss']
 })
 
 
