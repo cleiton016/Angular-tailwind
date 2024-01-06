@@ -20,7 +20,12 @@ import { PokemonService } from 'src/app/services/pokemon.service';
 export class DeckShowComponent {
 
   @ViewChild('deckView') deckView: any
-
+  cardsNumber = 0;
+  pokemonNumber = 0;
+  pokemonList: any = [];
+  colorsNumber = 0;
+  typesNumber = 0;
+  typesList: any = [];
   isOpened: boolean = false
   resultSearch = [
     {
@@ -2347,10 +2352,18 @@ export class DeckShowComponent {
     private modalService: NgbModal,
     private pokemon: PokemonService
   ) {
-
   }
   ngOnInit(): void {
-
+    for (let index = 0; index < this.resultSearch.length; index++) {
+      this.cardsNumber = this.resultSearch.length
+      this.colorsNumber = this.resultSearch.length
+      this.pokemonList.push(this.resultSearch[index].name)
+      this.typesList.push(this.resultSearch[index].types)
+    }
+    const setUnico = new Set(this.pokemonList);
+    this.pokemonList = [...setUnico];
+    this.pokemonNumber = this.pokemonList.length;
+    this.typesNumber = this.typesList.length;
   }
 
   async open(data: string): Promise<void> {
