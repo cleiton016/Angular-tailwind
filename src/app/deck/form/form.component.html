@@ -1,14 +1,14 @@
 
-    
-  
-    
+
+
+
 
     <ng-template #modal let-modal>
       <div class="fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity"></div>
 
       <div class="fixed inset-0 z-10 w-auto overflow-y-auto">
         <div class="flex min-h-full items-end justify-center text-center lg:items-center lg:p-0">
-          
+
           <div class="overflow-hidden rounded-lg bg-white text-left w-3/5">
             <div class="flex items-center justify-center border-spacing-0.5 p-5 shadow-sm">
               <h2 class=" text-slate-500 text-2xl">Novo Baralho</h2>
@@ -25,7 +25,7 @@
               <label class="text-sm text-slate-800 mx-3 mt-3">Adicione cartas ao seu baralho</label>
               <div class="flex mx-3">
                 <input type="text" name="deckName" id="deckName" placeholder="Nome do Baralho" class="form-input rounded-md w-full py-3" #deck>
-                <button (click)="search(deck)" class="bg-blue-600 rounded-lg w-32 mx-5">Buscar</button>
+                <button (click)="search(deck)" class="bg-blue-600 rounded-lg w-32 mx-5 text-white">Buscar</button>
               </div>
             </form>
             <div class="grid grid-cols-2 mt-5 bg-slate-200 mx-3 rounded-t-md">
@@ -33,10 +33,10 @@
               <h1 class="text-center font-semibold text-xl py-5 shadow-md">Cards Selecionados</h1>
             </div>
             <div class="grid grid-cols-2 overflow-y-hidden h-96 max-h-96  pb-5 mx-3 rounded-b-md bg-slate-200">
-              
+
               <div class=" grid grid-cols-2 gap-4 overflow-y-scroll h-full max-h-96 px-5 pt-3  border-r-2 border-slate-400">
                 <div class="group relative shadow-inner p-3 border-solid rounded-md bg-white h-auto" *ngFor="let item of resultSearch!.data" (click)="select(item)">
-                  
+
                   <div class="aspect-h-1 aspect-w-1 w-full overflow-hidden rounded-md  lg:aspect-none group-hover:opacity-75 lg:h-72">
                     <img [src]="item.images.large" class="h-full w-full object-cover object-center lg:h-full lg:w-full">
                   </div>
@@ -45,7 +45,7 @@
                       <h3 class="text-sm font-medium text-gray-900">
                         {{item.name}}
                       </h3>
-                      
+
                     </div>
                     <p class="text-sm font-normal text-gray-700">Cards: /60</p>
                   </div>
@@ -53,13 +53,13 @@
               </div>
 
               <div class=" grid grid-cols-2 gap-4 overflow-y-scroll h-full max-h-96 px-5 pt-3">
-                
+
                 <div class="group relative shadow-inner p-3 border-solid rounded-md bg-white h-auto" *ngFor="let item of cardsSelected;let id = index" (click)="toggleValidation(id, item.id)"  >
-                  
+
                   <div class="aspect-h-1 aspect-w-1 w-full overflow-hidden rounded-md  lg:aspect-none group-hover:opacity-75 lg:h-72">
                     <img [src]="item.images.large" class="h-full w-full object-center lg:h-full lg:w-full overflow-visible">
                   </div>
-                  
+
                   <div class="absolute inset-0 z-10 bg-gray-300 bg-opacity-40 transition-opacity hidden" [id]="'val'+ id + item.id" >
                     <div class="absolute inset-0 z-10 w-auto overflow-y-auto">
                       <div class="flex min-h-full items-end justify-center text-center lg:items-center lg:p-0">
@@ -78,7 +78,7 @@
                       <h3 class="text-sm font-medium text-gray-900">
                         {{item.name}}
                       </h3>
-                      
+
                     </div>
                     <p class="text-sm font-normal text-gray-700">Cards: /60</p>
                   </div>
@@ -90,7 +90,7 @@
               <button type="button" class="inline-flex w-full justify-center rounded-md bg-green-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-green-500 sm:ml-3 sm:w-auto" (click)="save(modal)">Salvar </button>
               <button type="button" class="mt-3 inline-flex w-full justify-center rounded-md bg-white px-3 py-2 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50 sm:mt-0 sm:w-auto" (click)="close(modal)">Cancel</button>
             </div>
-            
+
 
           </div>
         </div>
