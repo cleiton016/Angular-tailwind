@@ -23,31 +23,6 @@ export class DeckComponent implements OnInit {
             listCards: [],
             cover: 'https://p2.trrsf.com/image/fget/cf/774/0/images.terra.com/2023/03/25/1772225721-pokemon-horizons.jpg'
         },
-        {
-            name: 'Teste 2',
-            listCards: [0, 0, 0],
-            cover: 'https://p2.trrsf.com/image/fget/cf/774/0/images.terra.com/2023/03/25/1772225721-pokemon-horizons.jpg'
-        },
-        {
-            name: 'Teste 2',
-            listCards: [0, 0, 0],
-            cover: 'https://p2.trrsf.com/image/fget/cf/774/0/images.terra.com/2023/03/25/1772225721-pokemon-horizons.jpg'
-        },
-        {
-            name: 'Teste 2',
-            listCards: [0, 0, 0],
-            cover: 'https://p2.trrsf.com/image/fget/cf/774/0/images.terra.com/2023/03/25/1772225721-pokemon-horizons.jpg'
-        },
-        {
-            name: 'Teste 2',
-            listCards: [0, 0, 0],
-            cover: 'https://p2.trrsf.com/image/fget/cf/774/0/images.terra.com/2023/03/25/1772225721-pokemon-horizons.jpg'
-        },
-        {
-            name: 'Teste 2',
-            listCards: [0, 0, 0],
-            cover: 'https://p2.trrsf.com/image/fget/cf/774/0/images.terra.com/2023/03/25/1772225721-pokemon-horizons.jpg'
-        }
     ]
 
     constructor (private modalService: NgbModal){}

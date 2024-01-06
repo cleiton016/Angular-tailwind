@@ -9,6 +9,8 @@ import { DeckComponent } from "./deck/deck.component";
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { CommonModule } from '@angular/common';
 
 @NgModule({
   declarations: [
@@ -16,16 +18,20 @@ import { FooterComponent } from './footer/footer.component';
     HomeComponent,
     HeaderComponent,
     FooterComponent,
+
   ],
   providers: [
     provideHttpClient()
   ],
   bootstrap: [AppComponent],
   imports: [
+    CommonModule,
     BrowserModule,
     AppRoutingModule,
     DeckComponent,
-    NgbModule
+    NgbModule,
+    FormsModule, 
+    ReactiveFormsModule
   ]
 })
 export class AppModule { }
