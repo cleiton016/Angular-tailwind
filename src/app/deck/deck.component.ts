@@ -18,58 +18,26 @@ import { DeckShowComponent } from './deck-show/deck-show.component';
   ]
 })
 export class DeckComponent implements OnInit {
-  @ViewChild('modal') modal: any
-  @ViewChild('deckView') deckView: any
-  decks: Deck[] = [
-    {
-      name: 'Teste 1',
-      listCards: [
+    @ViewChild('modal') modal: any
+    @ViewChild('deckView') deckView: any
+    decks: Deck[] = []
 
-      ],
-      cover: 'https://p2.trrsf.com/image/fget/cf/774/0/images.terra.com/2023/03/25/1772225721-pokemon-horizons.jpg'
-    },
-    {
-      name: 'Teste 2',
-      listCards: [],
-      cover: 'https://p2.trrsf.com/image/fget/cf/774/0/images.terra.com/2023/03/25/1772225721-pokemon-horizons.jpg'
-    },
-    {
-      name: 'Teste 2',
-      listCards: [],
-      cover: 'https://p2.trrsf.com/image/fget/cf/774/0/images.terra.com/2023/03/25/1772225721-pokemon-horizons.jpg'
-    },
-    {
-      name: 'Teste 2',
-      listCards: [],
-      cover: 'https://p2.trrsf.com/image/fget/cf/774/0/images.terra.com/2023/03/25/1772225721-pokemon-horizons.jpg'
-    },
-    {
-      name: 'Teste 2',
-      listCards: [],
-      cover: 'https://p2.trrsf.com/image/fget/cf/774/0/images.terra.com/2023/03/25/1772225721-pokemon-horizons.jpg'
-    },
-    {
-      name: 'Teste 2',
-      listCards: [],
-      cover: 'https://p2.trrsf.com/image/fget/cf/774/0/images.terra.com/2023/03/25/1772225721-pokemon-horizons.jpg'
+    constructor (private modalService: NgbModal){}
+    ngOnInit(): void {   
+        this.setup()
+     }
+
+     setup(){
+        this.decks = JSON.parse(localStorage.getItem('deckOfCards')!)   
+     }
+
+  
+    openModal(modal: any) {
+        modal.open()
     }
-  ]
 
-  constructor(private modalService: NgbModal) { }
-  ngOnInit(): void {
-    //this.decks = JSON.parse(localStorage.getItem('decksOfCards')!)
-  }
-
-  newDeck(data: Deck) {
-    this.decks.push(data)
-    localStorage.setItem('decksOfCards', JSON.stringify(this.decks))
-  }
-  openModal(modal: any) {
-    modal.open()
-  }
-
-  openViewDeck(deckView: any) {
-    deckView.open()
-  }
+    openViewDeck(deckView: any) {
+        deckView.open()
+    }
 
 }
