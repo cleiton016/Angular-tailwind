@@ -27,6 +27,7 @@ export class FormComponent implements OnInit {
   resultSearch?: any
   cardsSelected?: PokemonCard[] = []
   form!: FormGroup;
+  edit: boolean = false
   constructor(
     private modalService: NgbModal,
     private pokemon: PokemonService,
@@ -46,6 +47,7 @@ export class FormComponent implements OnInit {
 
   async open(data: any): Promise<void> {
     if (data) {
+      this.edit = true
       console.log(data)
       this.form = this.fb.group({
         id: data?.id,
@@ -115,7 +117,7 @@ export class FormComponent implements OnInit {
 
   save(modal: any) {
     if (this.form.valid && (this.cardsSelected!.length >= 24 && this.cardsSelected!.length <= 60)) {
-      this.showToast('toast-success', 'Criado com Sucesso')
+      this.showToast('toast-success', this.edit? 'As modificações foram salvas' : 'Criado com Sucesso!')
       let id = 1
       if (this.form.value.id) {
         id = this.form.value.id
