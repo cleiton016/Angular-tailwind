@@ -22,7 +22,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 })
 export class FormComponent implements OnInit {
   @ViewChild('modal') modal: any
-
+  mensagem: any;
   isOpened: boolean = false
   resultSearch?: any
   cardsSelected?: PokemonCard[] = []
@@ -104,6 +104,8 @@ export class FormComponent implements OnInit {
       this.resultSearch.splice(id, 1)
     } else {
       // pode exibir uma msg
+      this.showToast('toast-danger', 'Só podem ter 4 cartas com o mesmo nome, no baralho. ')
+
     }
   }
   remove(index: number, card: PokemonCard) {
@@ -112,7 +114,8 @@ export class FormComponent implements OnInit {
   }
 
   save(modal: any) {
-    if (this.form?.valid && this.cardsSelected!.length >= 24) {
+    if (this.form.valid && (this.cardsSelected!.length >= 24 && this.cardsSelected!.length <= 60)) {
+      this.showToast('toast-success', 'Criado com Sucesso')
       let id = 1
       if (this.form.value.id) {
         id = this.form.value.id
@@ -132,14 +135,16 @@ export class FormComponent implements OnInit {
       } else {
         localStorage.setItem('deckOfCards', JSON.stringify([deck]))
       }
+      setTimeout(() => {
 
-      this.close(modal)// deve redirencionar para list de cards atualizada
-      location.reload()
+        this.close(modal)
+        location.reload()
+      }, 3000);
     } else {
-      //apresentar o toast de alerta
+
+      this.showToast('toast-danger', 'Minimo requerido, 24 cartas.')
     }
   }
-
 
 
   toggleValidation(index: number, id: string) {
@@ -150,6 +155,19 @@ export class FormComponent implements OnInit {
       elementoDesejado.classList.remove('hidden')
     } else {
       elementoDesejado?.classList.add('hidden')
+    }
+  }
+
+  showToast(status: string, mensagem: string) {
+    var toast = document.getElementById(status);
+    this.mensagem = mensagem;
+    if (toast !== null) {
+      toast.classList.remove('hidden');
+      setTimeout(function () {
+        if (toast !== null) {
+          toast.classList.add('hidden');
+        }
+      }, 3000); // Esconde o toast após 3 segundos (3000 milissegundos)
     }
   }
 }
