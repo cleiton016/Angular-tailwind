@@ -9,8 +9,8 @@ import { DeckComponent } from "./deck/deck.component";
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
-import { DeckShowComponent } from './deck/deck-show/deck-show.component';
-
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { CommonModule } from '@angular/common';
 @NgModule({
   declarations: [
     AppComponent,
@@ -23,10 +23,13 @@ import { DeckShowComponent } from './deck/deck-show/deck-show.component';
   ],
   bootstrap: [AppComponent],
   imports: [
+    CommonModule,
     BrowserModule,
     AppRoutingModule,
     DeckComponent,
-    NgbModule
+    NgbModule,
+    FormsModule,
+    ReactiveFormsModule
   ]
 })
 export class AppModule { }
